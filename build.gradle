@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    compile "org.apiguardian:apiguardian-api:1.1.1"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
     testCompile "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
