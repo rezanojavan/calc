@@ -8,16 +8,11 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * This class is responsible to get input from terminal. This terminal accept input as below format<br>
- * format: <br>
- *     [digit][space]([digit][space]){0,n}[operator]([operator][space]{0,n})
- * example : <br>
- *     <ol>
- *         <li>5 2 *</li>
- *         <li>6 7 8 + *</li>
- *     </ol>
+ * This class is responsible to get input from terminal. This terminal processor read a line and split it by space then
+ * return it as a list of string
  *
  * @author Reza Nojava
+ * @version 1.1-SNAPSHOT
  */
 public class TerminalInputProcessor implements InputProcessor {
 
@@ -26,13 +21,33 @@ public class TerminalInputProcessor implements InputProcessor {
      */
     private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Default constructor
+     */
+    public TerminalInputProcessor() {}
+
+    /**
+     * The constructor that initiate scanner
+     *
+     * @param scanner to initiate
+     */
+    public TerminalInputProcessor(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    /**
+     * This method read a line from terminal and split it by space
+     *
+     * @return list of string
+     * @throws ReadException if any exception happened
+     */
     public List<String> read() throws ReadException {
         try {
             String line = scanner.nextLine();
             return StringUtil.listBySpace(line);
-        } catch ( NoSuchElementException ex) {
+        } catch (NoSuchElementException ex) {
             throw new ReadException("No input available to read", ex);
-        } catch ( IllegalStateException ex) {
+        } catch (IllegalStateException ex) {
             throw new ReadException("No terminal available to read", ex);
         }
     }
