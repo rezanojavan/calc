@@ -1,6 +1,7 @@
 package com.airwallex.app.calc.common.validator;
 
 import com.airwallex.app.calc.common.exception.InvalidInputException;
+import com.airwallex.app.calc.common.util.StringUtil;
 import com.airwallex.app.calc.operation.OperationFactory;
 
 import java.util.List;
@@ -21,24 +22,20 @@ public class InputValidator {
      */
     public void isValid(List<String> inputs) throws InvalidInputException {
         for (String input : inputs)
-            if (!isDigit(input) && !isSupportedOperation(input))
-                throw new InvalidInputException(String.format("Value %s is not valid", input));
+            isValid(input);
     }
 
     /**
-     * This method checks input is a digit or not
+     * Validating input
      *
-     * @param input to check
-     * @return true if digit otherwise false
+     * @param input to validate
      */
-    private boolean isDigit(String input) {
-        try {
-            Double.valueOf(input);
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
+    public void isValid(String input) throws InvalidInputException {
+        if (!StringUtil.isDigit(input) && !isSupportedOperation(input))
+            throw new InvalidInputException(String.format("Value %s is not valid", input));
     }
+
+
 
     /**
      * This method checks input is a supported operation or not
