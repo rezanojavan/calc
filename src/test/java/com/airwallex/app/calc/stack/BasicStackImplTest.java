@@ -30,4 +30,14 @@ class BasicStackImplTest {
         stack.push("x");
         assertEquals("x", stack.pop());
     }
+
+    @Test
+    void stringRepresentation() {
+        Stack stack = new BasicStackImpl();
+        stack.push("2");
+        stack.push("5");
+        stack.push("*");
+        String string = stack.toString();
+        assertEquals("2 5 *", string);
+    }
 }
