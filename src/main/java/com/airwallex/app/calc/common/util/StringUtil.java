@@ -41,4 +41,19 @@ public class StringUtil {
     public static List<String> listBySpace(String str) {
         return Arrays.asList(splitBySpace(str));
     }
+
+    /**
+     * This method checks input is a digit or not
+     *
+     * @param input to check
+     * @return true if digit otherwise false
+     */
+    public static boolean isDigit(String input) {
+        try {
+            Double.valueOf(input);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
 }
