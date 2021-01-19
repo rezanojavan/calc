@@ -5,6 +5,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apiguardian.api.API;
 import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -22,7 +24,7 @@ public class OperationFactory {
     /**
      * Hold a collection of operations
      */
-    public static Map<String, OperationExecutor> operationExecutor = new HashMap<>();
+    public final static Map<String, OperationExecutor> operationExecutor = new HashMap<>();
 
     /**
      * Logger
@@ -36,7 +38,7 @@ public class OperationFactory {
      * @return operation executor
      * @throws OperationNotSupportedException if operation not supported yet
      */
-    public OperationExecutor getOperationExecutor(String operation) throws OperationNotSupportedException {
+    public static OperationExecutor getOperationExecutor(String operation) throws OperationNotSupportedException {
         OperationExecutor operationExecutor = OperationFactory.operationExecutor.get(operation);
         if (operationExecutor == null) {
             throw new OperationNotSupportedException(String.format("operation %s not supported", operation));
@@ -49,7 +51,7 @@ public class OperationFactory {
      * in same package and create a new instance of them and put instances into {@code operationExecutor} map
      */
     private static void init() {
-        Reflections reflections = new Reflections(OperationFactory.class.getPackageName());
+        Reflections reflections = new Reflections(OperationFactory.class.getPackageName(), new SubTypesScanner(false));
         Set<Class<? extends OperationExecutor>> allOperationExecutors =
                 reflections.getSubTypesOf(OperationExecutor.class);
         for (Class<? extends OperationExecutor> operationExecutorClass : allOperationExecutors ){
