@@ -30,4 +30,12 @@ public interface OperationExecutor {
      */
     String operation();
 
+    /**
+     * This method represent how many input required to execute this operation. for example for + operation this method
+     * will return 2
+     *
+     * @return input count
+     */
+    int requiredInputCount();
+
 }
