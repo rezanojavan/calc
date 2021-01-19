@@ -23,4 +23,18 @@ public interface Stack {
      * @param item to push to stack
      */
     void push(String item);
+
+    /**
+     * Get current size of stack
+     *
+     * @return size of stack
+     */
+    int size();
+
+    /**
+     * Convert stack to string representation
+     *
+     * @return string representation
+     */
+    String toString();
 }
