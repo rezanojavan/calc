@@ -27,4 +27,17 @@ public class BasicStackImpl implements Stack {
     public void push(String item) {
         stack.push(item);
     }
+
+    @Override
+    public int size() {
+        return stack.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder buffer = new StringBuilder();
+        for ( int i = 0; i < stack.size(); i++ )
+            buffer.append(stack.elementAt(i)).append(" ");
+        return buffer.toString().trim();
+    }
 }
