@@ -1,18 +1,19 @@
-package com.airwallex.app.calc.operation;
+package com.airwallex.app.calc.opertor;
 
 import com.airwallex.app.calc.common.exception.InvalidInputException;
+import com.airwallex.app.calc.common.util.NumberUtil;
 
 /**
- * This class executor sum operation
+ * This class execute sum operator
  *
  * @author Reza Nojavan
  * @version 1.0-SNAPSHOT
  */
-public class SumOperationExecutor implements OperationExecutor {
+public class AdditionOperatorExecutor implements OperatorExecutor {
     @Override
     public String execute(String... input) throws InvalidInputException, ArithmeticException {
         if (input == null || input.length < 2)
-            throw new InvalidInputException("Not enough input. At least two parameters should be provided");
+            throw new InvalidInputException("Not enough input. At least two input should be provided");
         double result = 0D;
         for (String operand : input) {
             try {
@@ -21,7 +22,7 @@ public class SumOperationExecutor implements OperationExecutor {
                 throw new InvalidInputException(String.format("input %s is not a number", operand));
             }
         }
-        return String.valueOf(result);
+        return NumberUtil.format15Decimal(result);
     }
 
     @Override
