@@ -1,5 +1,7 @@
 package com.airwallex.app.calc.stack;
 
+import com.airwallex.app.calc.common.util.NumberUtil;
+
 import java.util.EmptyStackException;
 
 /**
@@ -37,7 +39,12 @@ public class BasicStackImpl implements Stack {
     public String toString() {
         StringBuilder buffer = new StringBuilder();
         for ( int i = 0; i < stack.size(); i++ )
-            buffer.append(stack.elementAt(i)).append(" ");
+            buffer.append(NumberUtil.format10Decimal(stack.elementAt(i))).append(" ");
         return buffer.toString().trim();
+    }
+
+    @Override
+    public void clear() {
+        stack.clear();
     }
 }
