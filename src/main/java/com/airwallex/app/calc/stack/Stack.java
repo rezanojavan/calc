@@ -37,4 +37,9 @@ public interface Stack {
      * @return string representation
      */
     String toString();
+
+    /**
+     * this method push new item into stack
+     */
+    void clear();
 }
