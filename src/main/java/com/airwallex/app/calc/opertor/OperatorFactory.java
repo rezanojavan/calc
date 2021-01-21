@@ -1,11 +1,10 @@
-package com.airwallex.app.calc.operation;
+package com.airwallex.app.calc.opertor;
 
 import com.airwallex.app.calc.common.exception.OperationNotSupportedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apiguardian.api.API;
 import org.reflections.Reflections;
-import org.reflections.scanners.ResourcesScanner;
 import org.reflections.scanners.SubTypesScanner;
 
 import java.lang.reflect.InvocationTargetException;
@@ -19,12 +18,12 @@ import java.util.Set;
  * @author Reza
  */
 @API(status = API.Status.EXPERIMENTAL)
-public class OperationFactory {
+public class OperatorFactory {
 
     /**
      * Hold a collection of operations
      */
-    public final static Map<String, OperationExecutor> operationExecutor = new HashMap<>();
+    public final static Map<String, OperatorExecutor> operationExecutor = new HashMap<>();
 
     /**
      * Logger
@@ -38,12 +37,12 @@ public class OperationFactory {
      * @return operation executor
      * @throws OperationNotSupportedException if operation not supported yet
      */
-    public static OperationExecutor getOperationExecutor(String operation) throws OperationNotSupportedException {
-        OperationExecutor operationExecutor = OperationFactory.operationExecutor.get(operation);
-        if (operationExecutor == null) {
+    public static OperatorExecutor getOperationExecutor(String operation) throws OperationNotSupportedException {
+        OperatorExecutor operatorExecutor = OperatorFactory.operationExecutor.get(operation);
+        if (operatorExecutor == null) {
             throw new OperationNotSupportedException(String.format("operation %s not supported", operation));
         }
-        return operationExecutor;
+        return operatorExecutor;
     }
 
     /**
@@ -51,13 +50,13 @@ public class OperationFactory {
      * in same package and create a new instance of them and put instances into {@code operationExecutor} map
      */
     private static void init() {
-        Reflections reflections = new Reflections(OperationFactory.class.getPackageName(), new SubTypesScanner(false));
-        Set<Class<? extends OperationExecutor>> allOperationExecutors =
-                reflections.getSubTypesOf(OperationExecutor.class);
-        for (Class<? extends OperationExecutor> operationExecutorClass : allOperationExecutors ){
+        Reflections reflections = new Reflections(OperatorFactory.class.getPackageName(), new SubTypesScanner(false));
+        Set<Class<? extends OperatorExecutor>> allOperationExecutors =
+                reflections.getSubTypesOf(OperatorExecutor.class);
+        for (Class<? extends OperatorExecutor> operationExecutorClass : allOperationExecutors ){
             try {
-                OperationExecutor instance = operationExecutorClass.getDeclaredConstructor().newInstance();
-                OperationFactory.operationExecutor.put(instance.operation(), instance);
+                OperatorExecutor instance = operationExecutorClass.getDeclaredConstructor().newInstance();
+                OperatorFactory.operationExecutor.put(instance.operation(), instance);
             } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
                     | InvocationTargetException ex) {
                 logger.error("Operation {} failed to create", operationExecutorClass.getSimpleName(), ex);
