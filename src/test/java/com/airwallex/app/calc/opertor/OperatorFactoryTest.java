@@ -1,4 +1,4 @@
-package com.airwallex.app.calc.operation;
+package com.airwallex.app.calc.opertor;
 
 import com.airwallex.app.calc.common.exception.OperationNotSupportedException;
 import org.junit.jupiter.api.Assertions;
@@ -9,12 +9,12 @@ import org.junit.jupiter.api.Test;
  *
  * @author Reza Nojavan
  */
-class OperationFactoryTest {
+class OperatorFactoryTest {
 
     @Test
     void getOperationExecutor() {
         Assertions.assertThrows(OperationNotSupportedException.class, () ->
-                OperationFactory.getOperationExecutor("xxx")
+                OperatorFactory.getOperationExecutor("xxx")
         );
     }
 }
