@@ -1,4 +1,4 @@
-package com.airwallex.app.calc.operation;
+package com.airwallex.app.calc.opertor;
 
 import com.airwallex.app.calc.common.exception.InvalidInputException;
 import org.apiguardian.api.API;
@@ -11,7 +11,7 @@ import org.apiguardian.api.API;
  * @author Reza Nojavan
  */
 @API(status = API.Status.EXPERIMENTAL)
-public interface OperationExecutor {
+public interface OperatorExecutor {
 
     /**
      * This method execute operation and return result
