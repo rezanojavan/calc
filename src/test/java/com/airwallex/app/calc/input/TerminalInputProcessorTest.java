@@ -28,11 +28,6 @@ class TerminalInputProcessorTest {
         Mockito.when(scanner.nextLine()).thenReturn("5 2 *");
     }
 
-    @AfterEach
-    void tearDown() {
-        scanner.close();
-    }
-
     @Test()
     void read() throws ReadException {
         TerminalInputProcessor terminalInputProcessor = new TerminalInputProcessor(scanner);
