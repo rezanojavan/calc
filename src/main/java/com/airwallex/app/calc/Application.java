@@ -4,6 +4,8 @@ import com.airwallex.app.calc.common.exception.ArithmeticException;
 import com.airwallex.app.calc.common.exception.InvalidInputException;
 import com.airwallex.app.calc.common.exception.OperationNotSupportedException;
 import com.airwallex.app.calc.common.exception.ReadException;
+import com.airwallex.app.calc.engine.CalculatorEngine;
+import com.airwallex.app.calc.engine.CalculatorEngineImpl;
 import com.airwallex.app.calc.input.InputProcessor;
 import com.airwallex.app.calc.input.TerminalInputProcessor;
 import com.airwallex.app.calc.service.CalculatorService;
@@ -25,7 +27,8 @@ public class Application {
 
     public static void main(String[] args) {
         InputProcessor inputProcessor = new TerminalInputProcessor();
-        CalculatorService calculatorService = new CalculatorServiceImpl();
+        CalculatorEngine engine = new CalculatorEngineImpl();
+        CalculatorService calculatorService = new CalculatorServiceImpl(engine);
 
         String result = null;
         List<String> inputs = null;
