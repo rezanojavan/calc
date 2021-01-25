@@ -14,15 +14,7 @@ public class SubtractionOperatorExecutor implements OperatorExecutor {
     public String execute(String... input) throws InvalidInputException, ArithmeticException {
         if (input == null || input.length < 2)
             throw new InvalidInputException("Not enough input. At least two input should be provided");
-        double result = 0D;
-        for (String operand : input) {
-            try {
-                result -= Double.valueOf(operand);
-            } catch (NumberFormatException ex) {
-                throw new InvalidInputException(String.format("input %s is not a number", operand));
-            }
-        }
-        return NumberUtil.format15Decimal(result);
+        return NumberUtil.format15Decimal(NumberUtil.convert(input[0]) - NumberUtil.convert(input[1]));
     }
 
     @Override
