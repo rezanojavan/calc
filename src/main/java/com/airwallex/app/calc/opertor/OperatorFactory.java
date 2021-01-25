@@ -31,16 +31,16 @@ public class OperatorFactory {
     private static final Logger logger = LogManager.getLogger();
 
     /**
-     * Get a operation executor
+     * Get a operator executor
      *
-     * @param operation to get
-     * @return operation executor
+     * @param operator to get
+     * @return operator executor
      * @throws OperationNotSupportedException if operation not supported yet
      */
-    public static OperatorExecutor getOperationExecutor(String operation) throws OperationNotSupportedException {
-        OperatorExecutor operatorExecutor = OperatorFactory.operationExecutor.get(operation);
+    public static OperatorExecutor getOperatorExecutor(String operator) throws OperationNotSupportedException {
+        OperatorExecutor operatorExecutor = OperatorFactory.operationExecutor.get(operator);
         if (operatorExecutor == null) {
-            throw new OperationNotSupportedException(String.format("operation %s not supported", operation));
+            throw new OperationNotSupportedException(String.format("operation %s not supported", operator));
         }
         return operatorExecutor;
     }

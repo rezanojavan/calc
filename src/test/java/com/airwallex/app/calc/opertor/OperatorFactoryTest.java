@@ -5,16 +5,24 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test OperationFactory
+ * Test OperatorFactory
  *
  * @author Reza Nojavan
+ * @version 1.0-SNAPSHOT
  */
 class OperatorFactoryTest {
 
     @Test
-    void getOperationExecutor() {
+    void operationNotSupportedWhenGetOperatorExecutor() {
         Assertions.assertThrows(OperationNotSupportedException.class, () ->
-                OperatorFactory.getOperationExecutor("xxx")
+                OperatorFactory.getOperatorExecutor("xxx")
         );
     }
+
+    @Test
+    void getOperatorExecutor() throws OperationNotSupportedException {
+        Assertions.assertEquals(AdditionOperatorExecutor.class, OperatorFactory.getOperatorExecutor("+").getClass());
+    }
+
+
 }

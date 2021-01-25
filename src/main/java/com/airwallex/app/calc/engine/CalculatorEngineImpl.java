@@ -78,7 +78,7 @@ public class CalculatorEngineImpl implements CalculatorEngine {
      * @param operator to execute
      */
     private void executeOperator(String operator) throws ArithmeticException, OperationNotSupportedException, InvalidInputException {
-        OperatorExecutor executor = OperatorFactory.getOperationExecutor(operator);
+        OperatorExecutor executor = OperatorFactory.getOperatorExecutor(operator);
         int requiredInput = executor.requiredInputCount();
         if (!(stack.size() >= requiredInput))
             throw new ArithmeticException("Not enough input");
