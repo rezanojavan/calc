@@ -22,7 +22,7 @@ public class NumberUtil {
     /**
      * This method format value like #,##.##
      *
-     * @param value to format
+     * @param value  to format
      * @param format to format
      * @return formatted value
      */

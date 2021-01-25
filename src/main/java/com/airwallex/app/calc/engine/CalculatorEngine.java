@@ -24,6 +24,7 @@ public interface CalculatorEngine {
 
     /**
      * Get current result;
+     *
      * @return string
      */
     String getResult();

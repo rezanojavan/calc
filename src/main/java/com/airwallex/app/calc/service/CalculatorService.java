@@ -20,8 +20,8 @@ public interface CalculatorService {
      *
      * @param input new input
      * @return latest state after input applied
-     * @throws InvalidInputException if input is not valid
-     * @throws ArithmeticException   if any error happening during executing operators
+     * @throws InvalidInputException          if input is not valid
+     * @throws ArithmeticException            if any error happening during executing operators
      * @throws OperationNotSupportedException if unsupported operation passed
      */
     String acceptInput(String input) throws InvalidInputException, ArithmeticException, OperationNotSupportedException;
@@ -31,8 +31,8 @@ public interface CalculatorService {
      *
      * @param inputs new inputs
      * @return latest state after inputs applied
-     * @throws InvalidInputException if input is not valid
-     * @throws ArithmeticException   if any error happening during executing operators
+     * @throws InvalidInputException          if input is not valid
+     * @throws ArithmeticException            if any error happening during executing operators
      * @throws OperationNotSupportedException if unsupported operation passed
      */
     String acceptInput(List<String> inputs) throws InvalidInputException, ArithmeticException, OperationNotSupportedException;

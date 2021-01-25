@@ -24,7 +24,8 @@ public class TerminalInputProcessor implements InputProcessor {
     /**
      * Default constructor
      */
-    public TerminalInputProcessor() {}
+    public TerminalInputProcessor() {
+    }
 
     /**
      * The constructor that initiate scanner

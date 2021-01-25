@@ -4,7 +4,6 @@ import com.airwallex.app.calc.common.exception.ArithmeticException;
 import com.airwallex.app.calc.common.exception.InvalidInputException;
 import com.airwallex.app.calc.common.exception.OperationNotSupportedException;
 import com.airwallex.app.calc.engine.CalculatorEngine;
-import com.airwallex.app.calc.engine.CalculatorEngineImpl;
 
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public String acceptInput(List<String> inputs) throws InvalidInputException, ArithmeticException, OperationNotSupportedException {
         String result = "";
-        for ( int i = 0; i < inputs.size(); i++)
+        for (int i = 0; i < inputs.size(); i++)
             result = acceptInput(inputs.get(i));
         return result;
     }

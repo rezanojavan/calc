@@ -53,7 +53,7 @@ public class OperatorFactory {
         Reflections reflections = new Reflections(OperatorFactory.class.getPackageName(), new SubTypesScanner(false));
         Set<Class<? extends OperatorExecutor>> allOperationExecutors =
                 reflections.getSubTypesOf(OperatorExecutor.class);
-        for (Class<? extends OperatorExecutor> operationExecutorClass : allOperationExecutors ){
+        for (Class<? extends OperatorExecutor> operationExecutorClass : allOperationExecutors) {
             try {
                 OperatorExecutor instance = operationExecutorClass.getDeclaredConstructor().newInstance();
                 OperatorFactory.operationExecutor.put(instance.operation(), instance);

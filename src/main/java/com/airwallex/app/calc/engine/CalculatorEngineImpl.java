@@ -52,7 +52,7 @@ public class CalculatorEngineImpl implements CalculatorEngine {
      */
     private void execute(String input) throws ArithmeticException, OperationNotSupportedException,
             InvalidInputException {
-        if ( isEngineOperation(input) ) {
+        if (isEngineOperation(input)) {
             executeEngineOperation(input);
         } else {
             executeOperator(input);
@@ -95,9 +95,9 @@ public class CalculatorEngineImpl implements CalculatorEngine {
      * @throws OperationNotSupportedException if invalid operation found
      */
     private void executeEngineOperation(String operation) throws OperationNotSupportedException {
-        if ( operation.equalsIgnoreCase(EngineOperationEnum.CLEAR.name()) ){
+        if (operation.equalsIgnoreCase(EngineOperationEnum.CLEAR.name())) {
             clear();
-        } else if ( operation.equalsIgnoreCase(EngineOperationEnum.UNDO.name()) ) {
+        } else if (operation.equalsIgnoreCase(EngineOperationEnum.UNDO.name())) {
             undo();
         } else {
             throw new OperationNotSupportedException(String.format("Operation %s not supported by engine", operation));
@@ -128,11 +128,11 @@ public class CalculatorEngineImpl implements CalculatorEngine {
     private void undo() {
         String[] historyRecord = historyService.retrieve();
         // if there is no history record then nothing happen.
-        if ( historyRecord == null )
+        if (historyRecord == null)
             return;
         stack.pop();
-        for ( int i = historyRecord.length - 1; i >= 0; i--) {
-            if ( !historyRecord[i].equalsIgnoreCase("P") )
+        for (int i = historyRecord.length - 1; i >= 0; i--) {
+            if (!historyRecord[i].equalsIgnoreCase("P"))
                 stack.push(historyRecord[i]);
         }
     }

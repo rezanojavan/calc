@@ -20,7 +20,7 @@ public class BasicStackImpl implements Stack {
     public String pop() {
         try {
             return stack.pop();
-        } catch ( EmptyStackException ex) {
+        } catch (EmptyStackException ex) {
             return null;
         }
     }
@@ -38,7 +38,7 @@ public class BasicStackImpl implements Stack {
     @Override
     public String toString() {
         StringBuilder buffer = new StringBuilder();
-        for ( int i = 0; i < stack.size(); i++ )
+        for (int i = 0; i < stack.size(); i++)
             buffer.append(NumberUtil.format10Decimal(stack.elementAt(i))).append(" ");
         return buffer.toString().trim();
     }

@@ -32,13 +32,13 @@ public class Application {
 
         String result = null;
         List<String> inputs = null;
-        while( true) {
+        while (true) {
             int i = 0;
             try {
                 logger.info("Waiting for input: ");
                 inputs = inputProcessor.read();
-                for ( ; i < inputs.size(); i++) {
-                    if ( "exit".equalsIgnoreCase(inputs.get(i)) ) {
+                for (; i < inputs.size(); i++) {
+                    if ("exit".equalsIgnoreCase(inputs.get(i))) {
                         logger.info("Result: {}", result);
                         System.exit(0);
                     }
@@ -48,7 +48,7 @@ public class Application {
             } catch (ReadException | OperationNotSupportedException | InvalidInputException e) {
                 logger.error(e.getMessage(), e);
             } catch (ArithmeticException e) {
-                logger.error("operator {} (position: {}): insuciant parameters", inputs.get(i), (i*2) + 1);
+                logger.error("operator {} (position: {}): insuciant parameters", inputs.get(i), (i * 2) + 1);
                 logger.info("Result: {}", result);
             }
         }
