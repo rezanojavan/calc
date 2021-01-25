@@ -43,4 +43,15 @@ class StringUtilTest {
         assertNotNull(strings);
         assertEquals(3, strings.size());
     }
+
+    @Test
+    void isDigit() {
+        assertTrue(StringUtil.isDigit("1"));
+    }
+
+    @Test
+    void isNotDigit() {
+        assertFalse(StringUtil.isDigit("x"));
+    }
+
 }
