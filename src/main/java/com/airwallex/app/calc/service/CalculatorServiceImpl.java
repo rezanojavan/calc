@@ -16,7 +16,19 @@ import java.util.List;
  */
 public class CalculatorServiceImpl implements CalculatorService {
 
-    private CalculatorEngine engine = new CalculatorEngineImpl();
+    /**
+     * Calculator engine
+     */
+    private CalculatorEngine engine;
+
+    /**
+     * Constructor that set the engine
+     *
+     * @param engine to set
+     */
+    public CalculatorServiceImpl(CalculatorEngine engine) {
+        this.engine = engine;
+    }
 
     @Override
     public String acceptInput(String input) throws InvalidInputException, OperationNotSupportedException, ArithmeticException {
