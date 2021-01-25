@@ -8,7 +8,7 @@ import java.util.List;
  * The standard implementation for input processor. This interface expose standard operation of input for outer word
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public interface InputProcessor {
 

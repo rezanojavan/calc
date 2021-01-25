@@ -4,7 +4,7 @@ package com.airwallex.app.calc.common.exception;
  * This exception represent that operation not supported currently
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class OperationNotSupportedException extends Exception {
 

@@ -8,7 +8,7 @@ import java.util.Stack;
  * of history spec so there is no limitation exist on items that will be store in the history
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class StackBackendHistoryServiceImpl implements HistoryService {
 

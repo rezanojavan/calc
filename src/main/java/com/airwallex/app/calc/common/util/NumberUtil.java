@@ -9,7 +9,7 @@ import java.text.DecimalFormatSymbols;
  * Number Utility
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class NumberUtil {
 

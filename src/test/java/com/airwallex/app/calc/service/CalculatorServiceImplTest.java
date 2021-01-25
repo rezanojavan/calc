@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Calculator Service unit test
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 class CalculatorServiceImplTest {
 

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * History implementation unit test
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 class StackBackendHistoryServiceImplTest {
 

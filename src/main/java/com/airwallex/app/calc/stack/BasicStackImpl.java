@@ -8,7 +8,7 @@ import java.util.EmptyStackException;
  * This class implement stack by {@code java.util.Stack}
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPShOT
+ * @version 1.0-rc
  */
 public class BasicStackImpl implements Stack {
     /**

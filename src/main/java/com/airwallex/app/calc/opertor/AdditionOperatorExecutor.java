@@ -7,7 +7,7 @@ import com.airwallex.app.calc.common.util.NumberUtil;
  * This class execute sum operator
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class AdditionOperatorExecutor implements OperatorExecutor {
     @Override

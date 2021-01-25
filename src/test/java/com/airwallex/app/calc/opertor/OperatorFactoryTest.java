@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * Test OperatorFactory
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 class OperatorFactoryTest {
 

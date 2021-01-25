@@ -19,7 +19,7 @@ import java.util.List;
  * Run Calculator
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class Application {
 

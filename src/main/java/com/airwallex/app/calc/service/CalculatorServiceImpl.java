@@ -11,7 +11,7 @@ import java.util.List;
  * Calculator service implementation
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class CalculatorServiceImpl implements CalculatorService {
 

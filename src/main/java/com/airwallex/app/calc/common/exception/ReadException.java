@@ -4,7 +4,7 @@ package com.airwallex.app.calc.common.exception;
  * Read Exception that represent something went wrong when reading input
  *
  * @author Reza Nojavan
- * @version 1.0-SNAPSHOT
+ * @version 1.0-rc
  */
 public class ReadException extends Exception {
 

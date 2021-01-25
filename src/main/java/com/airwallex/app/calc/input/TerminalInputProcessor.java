@@ -12,7 +12,7 @@ import java.util.Scanner;
  * return it as a list of string
  *
  * @author Reza Nojava
- * @version 1.1-SNAPSHOT
+ * @version 1.1-rc
  */
 public class TerminalInputProcessor implements InputProcessor {
 
