@@ -1,5 +1,7 @@
 package com.airwallex.app.calc.common.util;
 
+import com.airwallex.app.calc.common.exception.InvalidInputException;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
@@ -47,5 +49,20 @@ public class NumberUtil {
      */
     public static String format10Decimal(String value) {
         return format(Double.valueOf(value), "#.##########");
+    }
+
+    /**
+     * This method convert an string to Double
+     *
+     * @param input to convert
+     * @return converted Double
+     * @throws InvalidInputException in input is not valid
+     */
+    public static Double convert(String input) throws InvalidInputException {
+        try {
+            return Double.valueOf(input);
+        } catch (NumberFormatException ex) {
+            throw new InvalidInputException(String.format("input %s is not a number", input));
+        }
     }
 }
