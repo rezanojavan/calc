@@ -57,4 +57,12 @@ class CalculatorEngineImplTest {
         Assertions.assertThrows(ArithmeticException.class, () -> calculateEngine.accept("+"));
     }
 
+    @Test
+    void undo() throws InvalidInputException, OperationNotSupportedException, ArithmeticException {
+        calculateEngine.accept("2");
+        calculateEngine.accept("5");
+        calculateEngine.accept("undo");
+        Assertions.assertEquals("2", calculateEngine.getResult());
+    }
+
 }
